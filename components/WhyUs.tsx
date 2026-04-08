@@ -5,7 +5,8 @@ import { useRef, useState, useEffect } from "react";
 import { CheckCircle2, Leaf, FlaskConical, Users, MapPin, Star, Zap, Heart, ShieldCheck, Brain, Baby } from "lucide-react";
 import { SectionLeaves } from "./Leaf3D";
 
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ICON_MAP: Record<string, React.ComponentType<any>> = {
   CheckCircle2, Leaf, FlaskConical, Users, MapPin, Star, Zap, Heart, ShieldCheck, Brain, Baby,
 };
 
