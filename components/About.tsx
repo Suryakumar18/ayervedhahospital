@@ -6,7 +6,8 @@ import { Calendar, Leaf, BookOpen, GraduationCap, Building2, Heart, Clock, MapPi
 import { SectionLeaves } from "./Leaf3D";
 import { HerbalSprig, TulsiPlant } from "./HerbIllustrations";
 
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ICON_MAP: Record<string, React.ComponentType<any>> = {
   BookOpen, Leaf, GraduationCap, Building2, Heart, Calendar, Clock, MapPin, Phone,
 };
 
