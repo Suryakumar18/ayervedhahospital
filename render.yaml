@@ -3,7 +3,7 @@ services:
     name: bmg-siddha-hospital
     runtime: node
     buildCommand: npm install && npm run build
-    startCommand: node .next/standalone/server.js
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
