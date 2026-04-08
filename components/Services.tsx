@@ -10,7 +10,8 @@ import {
   Pill, Thermometer, Microscope, Wind, Sun,
 } from "lucide-react";
 
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ICON_MAP: Record<string, React.ComponentType<any>> = {
   Stethoscope, Activity, Brain, Baby, FlameKindling, TreeDeciduous, ShieldCheck, Zap,
   Heart, Leaf, Star, Pill, Thermometer, Microscope, Wind, Sun,
 };
