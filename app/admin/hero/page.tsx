@@ -23,6 +23,17 @@ interface HeroSettings {
   callNumber: string;
 }
 
+const inputCls = "w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-forest-300 bg-white";
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">{label}</label>
+      {children}
+    </div>
+  );
+}
+
 const DEFAULT: HeroSettings = {
   backgroundImage: "https://res.cloudinary.com/dx98orvo0/image/upload/v1775367195/weed-leaves-oil-product-still-life_jqpa3h.jpg",
   badge: "Ancient Siddha Wisdom · Since 2004",
@@ -76,15 +87,6 @@ export default function AdminHero() {
     setSaved(true);
     setTimeout(() => setSaved(false), 2500);
   };
-
-  const Field = ({ label, children }: { label: string; children: React.ReactNode }) => (
-    <div>
-      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">{label}</label>
-      {children}
-    </div>
-  );
-
-  const inputCls = "w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-forest-300 bg-white";
 
   return (
     <div className="min-h-screen bg-gray-50">
