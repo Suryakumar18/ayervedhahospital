@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/aurvedha';
+const MONGODB_URI = 'mongodb+srv://smartcliff:Mern%40143@cluster0.hkb7jhx.mongodb.net/lms?retryWrites=true&w=majority&appName=Cluster0';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let cached = (global as any).mongoose as { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
