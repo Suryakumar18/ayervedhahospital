@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest-dark: #1a4731;
+  --forest-mid: #2d6a4f;
+  --forest-light: #3d8464;
+  --gold: #c9a84c;
+  --gold-light: #f0c957;
+  --cream: #fdf6ec;
+  --bark: #2c1810;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cream);
+  color: var(--bark);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf6ec;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d6a4f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a4731;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Leaf SVG decoration utility */
+.leaf-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 C30 10 10 30 10 50 C10 70 30 90 50 90 C70 90 90 70 90 50 C90 30 70 10 50 10Z' fill='%232d6a4f' fill-opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Gold underline effect */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a84c, transparent);
+  border-radius: 2px;
+}
+
+/* Wavy divider */
+.wavy-divider {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wavy-divider svg {
+  display: block;
+  width: 100%;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ── 3D Leaf & Botanical styles ─────────────────────────────────── */
+
+/* Enable hardware-accelerated 3D for leaf containers */
+.leaf-3d-container {
+  perspective: 800px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Depth shadow under leaves */
+.leaf-shadow-3d {
+  filter: drop-shadow(0 8px 16px rgba(26, 71, 49, 0.3));
+}
+
+/* Smooth herb illustration entrance */
+.herb-enter {
+  animation: herbFadeIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes herbFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Gentle sway for herbal illustrations */
+.herb-sway {
+  animation: herbSway 6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+@keyframes herbSway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%       { transform: rotate(1.5deg);  }
+}
+
+/* Deep floating for large corner herbs */
+.herb-float-deep {
+  animation: herbFloatDeep 8s ease-in-out infinite;
+}
+@keyframes herbFloatDeep {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%       { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* Lotus bloom pulse */
+.lotus-pulse {
+  animation: lotusPulse 5s ease-in-out infinite;
+}
+@keyframes lotusPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50%       { transform: scale(1.05) rotate(3deg); }
+}
+
+/* Botanical ring slow spin (CSS fallback) */
+.ring-spin {
+  animation: ringSpinSlow 90s linear infinite;
+}
+@keyframes ringSpinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Leaf shimmer - subtle brightness flicker */
+.leaf-shimmer {
+  animation: leafShimmer 4s ease-in-out infinite;
+}
+@keyframes leafShimmer {
+  0%, 100% { filter: brightness(1) drop-shadow(0 4px 8px rgba(45,106,79,0.25)); }
+  50%       { filter: brightness(1.12) drop-shadow(0 6px 14px rgba(45,106,79,0.4)); }
+}
+
+/* Glass morphism for info overlays */
+.glass-herb {
+  background: rgba(253, 246, 236, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Section overflow clip (keeps 3D leaves inside bounds) */
+section {
+  overflow: hidden;
+}
